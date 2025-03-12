@@ -1,0 +1,150 @@
+[
+  {
+    "building": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES"
+    ]
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES"
+    ]
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES"
+    ],
+    "building": [
+      "PFILES"
+    ]
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES",
+      "PFILES"
+    ]
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES",
+      "PFILES"
+    ],
+    "building": [
+      "candidates.cpp",
+      "PCOMP"
+    ]
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES",
+      "PFILES",
+      "candidates.cpp",
+      "PCOMP"
+    ],
+    "building": []
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES",
+      "PFILES",
+      "candidates.cpp",
+      "PCOMP"
+    ],
+    "building": [
+      "PCC"
+    ]
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES",
+      "PFILES",
+      "candidates.cpp",
+      "PCOMP",
+      "PCC"
+    ],
+    "building": []
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES",
+      "PFILES",
+      "candidates.cpp",
+      "PCOMP",
+      "PCC"
+    ],
+    "building": [
+      "PT"
+    ]
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES",
+      "PFILES",
+      "candidates.cpp",
+      "PCOMP",
+      "PCC",
+      "PT"
+    ],
+    "building": []
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES",
+      "PFILES",
+      "candidates.cpp",
+      "PCOMP",
+      "PCC",
+      "PT"
+    ],
+    "building": [
+      "ptraced"
+    ]
+  },
+  {
+    "built": [
+      "json",
+      "PCOMPKIND",
+      "PTEE",
+      "PTYPES",
+      "PFILES",
+      "candidates.cpp",
+      "PCOMP",
+      "PCC",
+      "PT",
+      "ptraced"
+    ],
+    "building": []
+  }
+]

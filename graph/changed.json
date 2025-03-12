@@ -1,0 +1,48 @@
+[
+    {
+        "changed": [
+            "PCOMP"
+        ]
+    },
+    {
+        "changed": [
+            "PCOMP"
+        ],
+        "rebuild": [
+            "PFILES",
+            "PCOMPKIND"
+        ]
+    },
+    {
+        "changed": [
+            "PCOMP"
+        ],
+        "rebuild": [
+            "PFILES",
+            "PCOMPKIND"
+        ],
+        "analyze": [
+            "ptraced",
+            "PT"
+        ]
+    },
+    {
+        "changed": [
+            "PCOMP"
+        ],
+        "rebuild": [
+            "PFILES",
+            "PCOMPKIND"
+        ],
+        "analyze": [
+            "ptraced",
+            "PT"
+        ],
+        "rebuildDown": [
+            "PTYPES",
+            "PTEE",
+            "PCC",
+            "json"
+        ]
+    }
+]

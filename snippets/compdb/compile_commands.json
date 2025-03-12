@@ -1,0 +1,14 @@
+[
+  {
+    "directory": "./snippets/compdb/build",
+    "command": "clang++-18 -stdlib=libc++ -std=c++23 @std.cppm.o.modmap -o std.cppm.o -c /usr/lib/llvm-18/share/libc++/v1/std.cppm",
+    "file": "/usr/lib/llvm-18/share/libc++/v1/std.cppm",
+    "output": "std.cppm.o"
+  },
+  {
+    "directory": "./snippets/compdb/build",
+    "command": "clang++-18 -stdlib=libc++ -std=c++23 @main.cpp.o.modmap -o cpptest.dir/main.cpp.o -c ./snippets/compdb/main.cpp",
+    "file": "./snippets/compdb/main.cpp",
+    "output": "cpptest.dir/main.cpp.o"
+  }
+]

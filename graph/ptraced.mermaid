@@ -1,0 +1,37 @@
+flowchart TD
+    classDef partition stroke-dasharray: 5 5
+    classDef built fill:#588157
+    classDef building fill:#3a86ff
+    classDef changed fill:#FFAB5B
+    classDef rebuild fill:#99a8bb
+    classDef analyze fill:#FFF2DB
+    classDef rebuildDown fill:#66b2b2
+
+    json[nlohmann::json]
+    PCC[ptraced:compiled_commands]
+    PT[ptraced:tracer]
+    PTEE[ptraced:tracee]
+    PTYPES[ptraced:types]
+    PCOMP[ptraced:compilers]
+    PFILES[ptraced::candidates]
+    PCOMPKIND[ptraced::compiler_kind]
+    ptraced
+
+    class PCC,PT,PTEE,PTYPES,PCOMP,PFILES,PCOMPKIND partition
+
+    PCC --> json
+    PCC --> PCOMP
+    PCC --> PFILES
+    ptraced --> PTEE
+    ptraced --> PT
+    ptraced --> PCOMP
+    ptraced --> PFILES
+    ptraced --> PTYPES
+    PT --> PTEE
+    PT --> PTYPES
+    PT --> PCC
+    PT --> PCOMP
+    PCOMP --> PCOMPKIND
+    PCOMP --> PFILES
+    PFILES --> PCOMPKIND
+    candidates.cpp@{ shape: doc } --> PFILES
