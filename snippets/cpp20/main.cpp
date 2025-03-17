@@ -1,5 +1,6 @@
 // Or, `import std;` in C++23.
-// Order of include and import should not matter, but it does.
+// Order of include and import
+//  should not matter, but it does.
 #include <iostream>
 import library;
 

@@ -230,12 +230,13 @@ module : private;
 export module parser;
 
 // Attached to parser.
-// Module linkage (`flags@parser`')
+// Module linkage, `flags@parser`
 int flags();
 
-// Attached to parser, external linkage.
-// `::version@parser` => Strong ownership.
-// `::version` => Weak ownership.
+// Attached to parser.
+// External linkage.
+// `::version@parser`, strong ownership
+// `::version`, weak ownership
 export int version();
 \end{minted}
     \end{column}
@@ -244,12 +245,13 @@ export int version();
 export module serializer;
 
 // Attached to serializer.
-// Module linkage (`flags@serializer`'), OK.
+// Module linkage, `flags@serializer`
 int flags();
 
-// Attached to serializer, external linkage.
-// `::version@serializer` => OK.
-// `::version` => ODR violation.
+// Attached to serializer.
+// External linkage.
+// `::version@serializer` => OK
+// `::version` => ODR violation
 export int version();
   \end{minted}
     \end{column}
