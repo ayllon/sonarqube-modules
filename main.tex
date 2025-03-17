@@ -309,7 +309,7 @@ Handler create_parser() { return Handler {}; } // Visible, external linkage
 \end{frame}
 
 \begin{frame}{File Name and Extensions}
-  Names are not meaningful, and extensions are purely a convention.
+  File names and extensions for module units are not significant; they are a matter of convention.
 
   \begin{itemize}
     \item \texttt{module.cppm} is preferred by clang.
@@ -476,7 +476,7 @@ import <iostream>;
 \begin{frame}{First things first}
   We need to know who exports and imports what.
   \begin{itemize}
-    \item Names are not meaningful. Extensions aren't either.
+    \item File names and extensions are not meaningful.
     \item Can we use the compilation database?
   \end{itemize}
 \end{frame}
@@ -528,7 +528,7 @@ import <iostream>;
 
 %   Forget it, scan dependencies!
 \begin{frame}{First things first}
-  Forget it, we'll scan the dependencies.
+  We'll scan the dependencies ourselves.
   \begin{itemize}
     \item Involves only the preprocessor, so it can be done quickly.
     \item We can do it in parallel.
