@@ -25,6 +25,7 @@
 *.synctex(busy)
 *.synctex.gz
 *.toc
+*.vrb
 
 # LaTeX editor files
 *.pdf

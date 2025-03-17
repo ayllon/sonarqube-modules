@@ -95,24 +95,29 @@
 \end{frame}
 
 \section{Brief Refresher on C++ Modules}
-\begin{frame}[containsverbatim]{Before C++20}
+\begin{frame}{Before C++20}
+  \setbeamercovered{transparent}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \begin{block}{library.h}
-        \inputminted{cpp}{snippets/cpp17/library.h}
-      \end{block}
-      \begin{block}{library.cpp}
-        \inputminted{cpp}{snippets/cpp17/library.cpp}
-      \end{block}
+      \onslide<1>{\begin{block}{library.h}
+          \inputminted{cpp}{snippets/cpp17/library.h}
+        \end{block}}
+      \onslide<2>{\begin{block}{library.cpp}
+          \inputminted{cpp}{snippets/cpp17/library.cpp}
+        \end{block}}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \begin{block}{main.cpp}
-        \inputminted{cpp}{snippets/cpp17/main.cpp}
-      \end{block}
+      \onslide<3>{%
+        \begin{block}{main.cpp}
+          \inputminted{cpp}{snippets/cpp17/main.cpp}
+        \end{block}
+      }
     \end{column}
   \end{columns}
   \begin{block}{}
-    \inputminted{bash}{snippets/cpp17/build.sh}
+    \onslide<4>{%
+      \inputminted{bash}{snippets/cpp17/build.sh}
+    }
   \end{block}
 
   \note[item]{Compilation units are independent.}
@@ -122,21 +127,22 @@
 \end{frame}
 
 
-\begin{frame}[containsverbatim]{Since C++20}
+\begin{frame}{Since C++20}
+  \setbeamercovered{transparent}
   \begin{columns}
-    \begin{column}{0.5\textwidth}
+    \onslide<1>{\begin{column}{0.5\textwidth}
       \begin{block}{library.cppm}
         \inputminted{cpp}{snippets/cpp20/library.cppm}
-      \end{block}
+      \end{block}}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \begin{block}{main.cpp}
-        \inputminted{cpp}{snippets/cpp20/main.cpp}
-      \end{block}
+      \onslide<2>{\begin{block}{main.cpp}
+          \inputminted{cpp}{snippets/cpp20/main.cpp}
+        \end{block}}
     \end{column}
   \end{columns}
   \begin{block}{}
-    \inputminted{bash}{snippets/cpp20/build.sh}
+    \onslide<3>{\inputminted{bash}{snippets/cpp20/build.sh}}
   \end{block}
 
   \note[item]{Now, if library is used from multiple TUs, it is parsed only once.}
@@ -145,11 +151,12 @@
 % Some main differences
 
 % Terminology
-\begin{frame}[containsverbatim]{Terminology}
+\begin{frame}[fragile]{Terminology}
+  \setbeamercovered{transparent}
   \begin{columns}
     \begin{column}{0.5\textwidth}
 
-      \begin{block}{\footnotesize Global Module Fragment}
+      \begin{block}<+>{\footnotesize Global Module Fragment}
         \begin{minted}{cpp}
 module;
 // THIS is the GMF
@@ -158,14 +165,14 @@ module;
     \end{minted}
       \end{block}
 
-      \begin{block}{\footnotesize Primary Module Interface Unit}
+      \begin{block}<+>{\footnotesize Primary Module Interface Unit}
         \begin{minted}{cpp}
 export module <identifier>;
 // Declarations
     \end{minted}
       \end{block}
 
-      \begin{block}{\footnotesize Module Implementation Unit}
+      \begin{block}<+>{\footnotesize Module Implementation Unit}
         \begin{minted}{cpp}
 module <identifier>;
 
@@ -178,14 +185,14 @@ export import :part2;
 
     \begin{column}{0.5\textwidth}
 
-      \begin{block}{\footnotesize Module Interface Partition}
+      \begin{block}<+>{\footnotesize Module Interface Partition}
         \begin{minted}{cpp}
 export module <identifier>:part1;
 // Declarations
         \end{minted}
       \end{block}
 
-      \begin{block}{\footnotesize Private Module Fragment}
+      \begin{block}<+>{\footnotesize Private Module Fragment}
         \begin{minted}{cpp}
 export module <identifier>;
 // Declarations
@@ -200,7 +207,7 @@ module : private;
   \end{columns}
 \end{frame}
 
-\begin{frame}[t,containsverbatim]{Terminology}
+\begin{frame}[t,fragile]{Terminology}
 
   \begin{columns}[t]
     \begin{column}{0.3\textwidth}
@@ -258,7 +265,7 @@ export int version();
   \end{columns}
 \end{frame}
 
-\begin{frame}[containsverbatim]{Terminology}
+\begin{frame}[fragile]{Terminology}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{block}{\footnotesize Visibility}
@@ -291,6 +298,7 @@ Handler create_parser() { return Handler {}; } // Visible, external linkage
 
   \vspace{0.5em}
 
+  \pause
   \small \cite{Engert21}
 
 \end{frame}
@@ -324,7 +332,7 @@ Handler create_parser() { return Handler {}; } // Visible, external linkage
   \note[item]{This is relevant for the analyzer as well! We can not rely on the extension.}
 \end{frame}
 
-\begin{frame}[containsverbatim]{Terminology}
+\begin{frame}[fragile]{Terminology}
   \begin{block}{Header Units}
     \begin{minted}[fontsize=\normalsize]{cpp}
 import <iostream>;
@@ -415,7 +423,7 @@ import <iostream>;
 \end{frame}
 
 % We need to know how it is compiled (why?)
-\begin{frame}[containsverbatim]{\texttt{compile\_commands.json}}
+\begin{frame}[fragile]{\texttt{compile\_commands.json}}
   \inputminted[breaklines]{json}{snippets/compdb/compile_commands.json}
   \begin{minted}{bash}
 # These are generated when building
@@ -546,7 +554,7 @@ import <iostream>;
   \note{We have re-invented \texttt{clang-scan-deps}, which is what CMake uses for clang and modules.}
 \end{frame}
 
-\begin{frame}[containsverbatim]{First things first}
+\begin{frame}[fragile]{First things first}
   After scanning, we have a list of who-provides-what, and who-needs-what.
   \begin{block}{}
     \footnotesize{
@@ -584,7 +592,7 @@ import <iostream>;
 \end{frame}
 
 \begin{frame}{Do we need to build everything every time?}
-  \begin{block}{Differential Analysis}
+  \begin{block}{Incremental analysis}
     The CFamily analyzer does not analyze the whole project every time.
     Nor on the \texttt{main} branch, nor on PRs.
     \begin{itemize}
@@ -595,16 +603,16 @@ import <iostream>;
   \end{block}
 \end{frame}
 
-\begin{frame}{Differential Analysis}
+\begin{frame}{Incremental analysis}
   \multiinclude[<+->][format=pdf, end=2,graphics={width=\textwidth}]{graph/changed/step}
 \end{frame}
 
-\begin{frame}{Differential Analysis \emoji{see-no-evil-monkey}}
+\begin{frame}{Incremental analysis \emoji{see-no-evil-monkey}}
   \includegraphics[width=\textwidth]{graph/changed/step-3.pdf}
 \end{frame}
 
 
-\begin{frame}{Differential Analysis}
+\begin{frame}{Incremental analysis}
   \begin{itemize}
     \item We ended rebuilding almost everything.
     \item We do \emph{not} reanalyze everything.
@@ -669,13 +677,14 @@ import <iostream>;
     \begin{itemize}
       \item Unsupported compilers or unsupported builtins.
       \item Unsupported language features.
+      \item SonarQube for IDE.
       \item \href{https://docs.sonarsource.com/sonarqube-cloud/advanced-setup/automatic-analysis}{Automatic Analysis}.
     \end{itemize}
   \end{block}
   Clang is already pretty resilient, and can give an AST even for ill-formed programs.
 \end{frame}
 
-\begin{frame}[containsverbatim]{Example}
+\begin{frame}[fragile]{Example}
   \begin{columns}
     \begin{column}{0.4\textwidth}
       \begin{minted}{cpp}
