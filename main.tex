@@ -368,7 +368,7 @@ import <iostream>;
           \item[MSVC] Complete
           \item[Apple Clang] No
         \end{description}
-        Use the most recent version you can.
+        It is recommended to use the latest version of your compiler.
       \end{block}
     \end{column}
 
@@ -594,7 +594,7 @@ import <iostream>;
 \begin{frame}{Do we need to build everything every time?}
   \begin{block}{Incremental analysis}
     The CFamily analyzer does not analyze the whole project every time.
-    Nor on the \texttt{main} branch, nor on PRs.
+    Neither on the \texttt{main} branch, nor on PRs.
     \begin{itemize}
       \item We analyze only the files that changed.
       \item If a header changes, we analyze the files that include it.
@@ -614,7 +614,7 @@ import <iostream>;
 
 \begin{frame}{Incremental analysis}
   \begin{itemize}
-    \item We ended rebuilding almost everything.
+    \item We ended up rebuilding almost everything.
     \item We do \emph{not} reanalyze everything.
     \item Changes to deeply nested modules can trigger a cascade of rebuilds.
     \item On the bright side
@@ -681,7 +681,7 @@ import <iostream>;
       \item \href{https://docs.sonarsource.com/sonarqube-cloud/advanced-setup/automatic-analysis}{Automatic Analysis}.
     \end{itemize}
   \end{block}
-  Clang is already pretty resilient, and can give an AST even for ill-formed programs.
+  Clang is already quite robust and can generate an AST even for ill-formed programs.
 \end{frame}
 
 \begin{frame}[fragile]{Example}
@@ -802,7 +802,7 @@ int foo() {
   \huge Questions?
 \end{frame}
 
-\begin{frame}{More Material}
+\begin{frame}{More Materials}
   \printbibliography[heading=none]
 \end{frame}
 
