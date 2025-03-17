@@ -23,7 +23,8 @@
         ],
         "analyze": [
             "ptraced",
-            "PT"
+            "PT",
+            "PCC"
         ]
     },
     {
@@ -36,12 +37,12 @@
         ],
         "analyze": [
             "ptraced",
-            "PT"
+            "PT",
+            "PCC"
         ],
         "rebuildDown": [
             "PTYPES",
             "PTEE",
-            "PCC",
             "json"
         ]
     }
