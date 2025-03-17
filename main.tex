@@ -1,4 +1,4 @@
-\documentclass[]{beamer}
+\documentclass[aspectratio=169]{beamer}
 \usetheme[background=light]{moloch}
 
 \usepackage[backend=biber,style=authortitle,dashed=false,url=false]{biblatex}
@@ -95,7 +95,7 @@
 \end{frame}
 
 \section{Brief Refresher on C++ Modules}
-\begin{frame}{Before C++20}
+\begin{frame}[t]{Before C++20}
   \setbeamercovered{transparent}
   \begin{columns}
     \begin{column}{0.5\textwidth}
@@ -568,14 +568,14 @@ import <iostream>;
 \end{frame}
 
 \begin{frame}{Dependency Graph}
-  \small From a pet project, so it fits on a slide.
   \begin{figure}
-    \includegraphics[width=0.9\textwidth]{graph/ptraced.pdf}
+    \includegraphics[width=0.8\textwidth]{graph/ptraced.pdf}
+    \caption*{\footnotesize From a pet project, so it fits on a slide.}
   \end{figure}
 \end{frame}
 
 \begin{frame}{Building the BMIs}
-  \multiinclude[<+->][format=pdf, graphics={width=\textwidth}]{graph/building/step}
+  \multiinclude[<+->][format=pdf, graphics={width=0.9\textwidth}]{graph/building/step}
 \end{frame}
 
 \begin{frame}{We can now analyze}
@@ -604,11 +604,11 @@ import <iostream>;
 \end{frame}
 
 \begin{frame}{Incremental analysis}
-  \multiinclude[<+->][format=pdf, end=2,graphics={width=\textwidth}]{graph/changed/step}
+  \multiinclude[<+->][format=pdf, end=2,graphics={width=0.9\textwidth}]{graph/changed/step}
 \end{frame}
 
 \begin{frame}{Incremental analysis \emoji{see-no-evil-monkey}}
-  \includegraphics[width=\textwidth]{graph/changed/step-3.pdf}
+  \includegraphics[width=0.9\textwidth]{graph/changed/step-3.pdf}
 \end{frame}
 
 
@@ -657,7 +657,7 @@ import <iostream>;
 
 \begin{frame}{One takeaway?}
   \begin{figure}
-    \includegraphics[width=\linewidth]{questions.png}
+    \includegraphics[width=0.5\linewidth]{questions.png}
   \end{figure}
   \centering
   Probably yes.
