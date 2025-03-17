@@ -309,7 +309,7 @@ Handler create_parser() { return Handler {}; } // Visible, external linkage
 \end{frame}
 
 \begin{frame}{File Name and Extensions}
-  Names are not meaningful, an extensions are purely a convention.
+  Names are not meaningful, and extensions are purely a convention.
 
   \begin{itemize}
     \item \texttt{module.cppm} is preferred by clang.
@@ -342,7 +342,7 @@ import <iostream>;
   \begin{itemize}
     \item Source files need to be scanned to find the dependencies.
     \item Modules need to be built before they can be imported.
-    \item Compilation is \emph{not} embarransingly parallel anymore.
+    \item Compilation is \emph{not} embarrassingly parallel anymore.
   \end{itemize}
 \end{frame}
 
@@ -437,11 +437,11 @@ import <iostream>;
 %   Anyway, let's add to the momentum, it seems a good moment.
 \begin{frame}{Why now?}
   \begin{itemize}
-    \item CMake support stopped being experimental by 3.28 (October 2023).
+    \item CMake support became non-experimental in version 3.28 (October 2023).
     \item Clang 19 was to be branched in Summer 2024.
           \begin{itemize}
             \item We need \texttt{-fmodules-reduced-bmi} for the feature to be usable.
-            \item It purges unreachable entities from the BMI's.
+            \item It purges unreachable entities from the BMIs.
           \end{itemize}
     \item The implementations are starting to be usable and stabilize.
   \end{itemize}
@@ -564,16 +564,16 @@ import <iostream>;
   \end{figure}
 \end{frame}
 
-\begin{frame}{Building the BMI's}
+\begin{frame}{Building the BMIs}
   \multiinclude[<+->][format=pdf, graphics={width=\textwidth}]{graph/building/step}
 \end{frame}
 
 \begin{frame}{We can now analyze}
   \begin{itemize}
-    \item We could analyze as we build the BMI's, but we decided to do it in two steps.
-    \item Once we have the BMI's, we can parallelize the analysis to the maximum, which is more intensive.
+    \item We could analyze as we build the BMIs, but we decided to do it in two steps.
+    \item Once we have the BMIs, we can parallelize the analysis to the maximum, which is more intensive.
   \end{itemize}
-  \begin{block}{What do we do with the BMI's?}
+  \begin{block}{What do we do with the BMIs?}
     Infinity's take 2.61 GiB of disk space. Uploading/downloading them from the server is not a good option.
 
     They are transient, and we rebuild them when necessary.
@@ -584,7 +584,7 @@ import <iostream>;
 \begin{frame}{Do we need to build everything every time?}
   \begin{block}{Differential Analysis}
     The CFamily analyzer does not analyze the whole project every time.
-    Nor on the \texttt{main} branch, nor on PR's.
+    Nor on the \texttt{main} branch, nor on PRs.
     \begin{itemize}
       \item We analyze only the files that changed.
       \item If a header changes, we analyze the files that include it.
@@ -605,14 +605,14 @@ import <iostream>;
 \begin{frame}{Differential Analysis}
   \begin{itemize}
     \item We ended rebuilding almost everything.
-    \item We do \emph{not} re-analyze everything.
+    \item We do \emph{not} reanalyze everything.
     \item Changes to deeply nested modules can trigger a cascade of rebuilds.
     \item On the bright side
           \begin{table}
             \begin{tabular}{l r l}
-                            & \textbf{BMI's} &           \\
-              Infinity      & 643            & 2 minutes \\
-              async\_simple & 64             & 5 seconds
+                            & \textbf{BMIs} &           \\
+              Infinity      & 643           & 2 minutes \\
+              async\_simple & 64            & 5 seconds
             \end{tabular}
           \end{table}
   \end{itemize}
@@ -621,9 +621,9 @@ import <iostream>;
 \begin{frame}{Overhead summary}
   \footnotesize\begin{table}
     \begin{tabular}{l r r r r r r}
-                    & \textbf{TU's} & \textbf{BMI's} & \textbf{Scan} & \textbf{Build} & \textbf{Total} & \textbf{Space} (MiB) \\
-      Infinity      & 1\,485        & 643            & 7.00          & 2:00           & 1:12:42        & 2671.9               \\
-      async\_simple & 87            & 64             & 0.45          & 0:05           & 1:12           & 138.6
+                    & \textbf{TU's} & \textbf{BMIs} & \textbf{Scan} & \textbf{Build} & \textbf{Total} & \textbf{Space} (MiB) \\
+      Infinity      & 1\,485        & 643           & 7.00          & 2:00           & 1:12:42        & 2671.9               \\
+      async\_simple & 87            & 64            & 0.45          & 0:05           & 1:12           & 138.6
     \end{tabular}
   \end{table}
 \end{frame}
@@ -633,19 +633,19 @@ import <iostream>;
   \begin{enumerate}
     \item Scan the source files to find \texttt{import} / \texttt{export} statements.
     \item Build the dependency graph.
-    \item Traverse it in order to generate the BMI's.
+    \item Traverse it in order to generate the BMIs.
     \item On incremental changes, implement the logic to:
           \begin{itemize}
-            \item Re-build what is necessary to analyze the modified file.
-            \item Re-analyze what is affected by the changes.
-            \item Re-build what is necessary to analyze the files affected by the change \emoji{grimacing-face}.
+            \item Rebuild what is necessary to analyze the modified file.
+            \item Reanalyze what is affected by the changes.
+            \item Rebuild what is necessary to analyze the files affected by the change \emoji{grimacing-face}.
           \end{itemize}
     \item Do all of this while trying to utilize the available cores efficiently.
   \end{enumerate}
-  If we had code generation, we could almost build the program\footnote{\tiny Just kidding, this would only half-work for module-only projects.}.
+  If we had code generation, we could almost build the program.\footnote{\tiny Just kidding, this would only half-work for module-only projects.}
 \end{frame}
 
-\begin{frame}{One take away?}
+\begin{frame}{One takeaway?}
   \begin{figure}
     \includegraphics[width=\linewidth]{questions.png}
   \end{figure}
@@ -715,7 +715,7 @@ int foo() {
 
 \begin{frame}[t]{Modules with errors}
   \begin{block}{}
-    \small Fortunately clang can emit and load BMI's with errors: \texttt{-fallow-pcm-with-compiler-errors}\footnote{Capability that was \href{https://github.com/llvm/llvm-project/pull/121485}{briefly gone between versions 19 and 20}.}.
+    \small Fortunately clang can emit and load BMIs with errors: \texttt{-fallow-pcm-with-compiler-errors}\footnote{Capability that was \href{https://github.com/llvm/llvm-project/pull/121485}{briefly gone between versions 19 and 20}.}.
 
     \vspace{0.5em}
 
@@ -736,13 +736,13 @@ int foo() {
   \begin{block}{}
     \begin{enumerate}
       \item \texttt{import std;} for Automatic Analysis.
-      \item Review rules that can be affected by modules. Some known \emph{False Positives}:
+      \item Review rules that can be affected by modules. Some known \emph{False Positives}
             \begin{itemize}
               \item \href{https://sonarsource.github.io/rspec/\#/rspec/S1000/cfamily}{S1000}: Header files should not contain unnamed namespaces
               \item \href{https://sonarsource.github.io/rspec/\#/rspec/S1003/cfamily}{S1003}: \texttt{using namespace} directives should not be used in header files
             \end{itemize}
       \item SonarQube for IDE.
-      \item Allow users to manage the caching of BMI's.
+      \item Allow users to manage the caching of BMIs.
       \item Header units.
     \end{enumerate}
     Adoption is still low, so hard to prioritize.
@@ -767,7 +767,7 @@ int foo() {
         \multicolumn{2}{c}{
           \begin{tabularx}{14em}{l Y Y r}
             \includesvg[width=1.5em]{logos/Clion} & \includesvg[width=1.5em]{logos/vscode} & \includesvg[width=1.5em]{logos/vs} & \includesvg[width=1.5em]{logos/eclipse} \\
-            \multicolumn{4}{l}{} Different IDE's, different API's                                                                                                         \\
+            \multicolumn{4}{l}{} Different IDEs, different APIs                                                                                                           \\
           \end{tabularx}
         }
       \end{tabular}
