@@ -368,7 +368,6 @@ import <iostream>;
           \item[MSVC] Complete
           \item[Apple Clang] No
         \end{description}
-        It is recommended to use the latest version of your compiler.
       \end{block}
     \end{column}
 
@@ -383,6 +382,7 @@ import <iostream>;
       \end{block}
     \end{column}
   \end{columns}
+  It is best to use the latest version of your compiler.
 
   \vspace{1em}
 
@@ -632,8 +632,9 @@ import <iostream>;
   \footnotesize\begin{table}
     \begin{tabular}{l r r r r r r}
                     & \textbf{TU's} & \textbf{BMIs} & \textbf{Scan} & \textbf{Build} & \textbf{Total} & \textbf{Space} (MiB) \\
-      Infinity      & 1\,485        & 643           & 7.00          & 2:00           & 1:12:42        & 2671.9               \\
-      async\_simple & 87            & 64            & 0.45          & 0:05           & 1:12           & 138.6
+      Infinity      & 1\,485        & 643           & 7.00s         & 2:00           & 1:12:42        & 2671.9               \\
+      async\_simple & 87            & 64            & 0.45s         & 0:05           & 1:12           & 138.6                \\
+      mp-units      & 253           & 3             & 3.20s         & 0:10           & 3:33           & 86.34
     \end{tabular}
   \end{table}
 \end{frame}
