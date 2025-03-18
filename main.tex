@@ -754,6 +754,7 @@ int foo() {
             \end{itemize}
       \item SonarQube for IDE.
       \item Allow users to manage the caching of BMIs.
+      \item Handling multiple builds of a module within a single analysis.
       \item Header units.
     \end{enumerate}
     Adoption is still low, so hard to prioritize.
@@ -796,10 +797,25 @@ int foo() {
 \end{frame}
 
 \begin{frame}[standout]
-  \centering
-  \includesvg[width=0.2\textwidth]{logos/SonarMarkDark.svg}
+  \begin{block}{{\color{white}Key Points}}
+    \small
+    \begin{itemize}
+      \item C++20 module support is becoming more stable across major compilers.
+      \item Integrating module support into the analyzer required a significant effort.
+      \item The adoption rate of modules is still relatively low.
+      \item If you try using modules and analyze them, your feedback would be greatly appreciated.
+    \end{itemize}
+    \vspace{1em}
+    \centering
+    \begin{tabular}{m{2em} p{18em}}
+      \includesvg[width=2em]{logos/SonarMarkDark.svg} & \href{https://community.sonarsource.com/}{\color{cyan}https://community.sonarsource.com/}
+    \end{tabular}
 
-  \huge Questions?
+  \end{block}
+  \begin{block}{}
+    \centering
+    Questions?
+  \end{block}
 \end{frame}
 
 \begin{frame}{More Materials}
