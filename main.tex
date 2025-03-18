@@ -672,19 +672,30 @@ import <iostream>;
 %   Do they care? Maybe they do (clang-tidy, clangd)
 %   Tooling probably cares in general about this aspect
 \begin{frame}{Wait... what?}
-  \begin{block}{Why?}
+  \begin{block}{}
     Analyzers need to be more resilient to parsing errors.
     \begin{itemize}
       \item Unsupported compilers or unsupported builtins.
       \item Unsupported language features.
       \item SonarQube for IDE.
-      \item \href{https://docs.sonarsource.com/sonarqube-cloud/advanced-setup/automatic-analysis}{Automatic Analysis}.
     \end{itemize}
   \end{block}
-  Clang is already quite robust and can generate an AST even for ill-formed programs.
 \end{frame}
 
-\begin{frame}[fragile]{Example}
+\begin{frame}{Wait... what?}
+  \begin{block}{\href{https://docs.sonarsource.com/sonarqube-cloud/advanced-setup/automatic-analysis/\#automatic-analysis-for-c-and-c-projects-}{Automatic Analysis}}
+    \begin{itemize}
+      \item No configuration needed.
+      \item Simply link SonarQube to your repository to get started.
+      \item Ideal for small to medium-sized projects.
+      \item A full talk on its own.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Wait... what?}
+  Clang is already quite robust and can generate an AST even for ill-formed programs.
+  \vspace{1em}
   \begin{columns}
     \begin{column}{0.4\textwidth}
       \begin{minted}{cpp}
@@ -718,7 +729,7 @@ int foo() {
       }
     \end{column}
   \end{columns}
-  \vspace{1em}
+  \vspace{0.5em}
   \begin{center}
     \small What if this was a module with an export?
   \end{center}
