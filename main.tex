@@ -212,7 +212,7 @@ module : private;
   \begin{columns}[t]
     \begin{column}{0.3\textwidth}
       \begin{block}{\footnotesize Attachment}
-        \justifying \footnotesize If a declaration appears after the module declaration, it is attached to the module.
+        \justifying \footnotesize If a declaration appears after the module declaration, it is attached to the module, except if \texttt{extern "C++"} is used.
       \end{block}
     \end{column}
 
@@ -799,12 +799,7 @@ int foo() {
 \end{frame}
 
 \begin{frame}{}
-  Special mention to Tomasz Kaminski, who led the effort and
-  submitted a Defect Report:
-  \begin{itemize}
-    \item \href{https://cplusplus.github.io/CWG/issues/2921.html}{CWG 2921}
-    \item Refined in \href{https://cplusplus.github.io/CWG/issues/2990.html}{CWG 2990}
-  \end{itemize}
+  Special mention to Tomasz Kaminski, who led the effort.
 \end{frame}
 
 \begin{frame}[standout]
